@@ -1,0 +1,247 @@
+﻿@using SSKD.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h2>@ViewBag.Title.</h2>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td align="center">
+                <table border="0" width="1000" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td valign="top" style="padding-top: 15px" width="210">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top">
+
+
+                                                <table border="0" width="210" cellspacing="0" cellpadding="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <img border="0" src="@Url.Content("~/images/leftmenu6/leftmenu06.gif")">
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td background="@Url.Content("~/images/leftmenu6/1.gif")"><a href="inc.php?inc=regist"><img src="@Url.Content("~/images/leftmenu6/1.gif")" class="img_opacity_view"></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <img border="0" src="@Url.Content("~/images/leftmenu6/leftmenu06_03.gif")" width="210" height="6">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td background="@Url.Content("~/images/leftmenu6/2.gif")"><a href="inc.php?inc=login"><img src="@Url.Content("~/images/leftmenu6/2_over.gif")" class="img_opacity_view"></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <img border="0" src="@Url.Content("~/images/leftmenu6/leftmenu06_03.gif")">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td background="@Url.Content("~/images/leftmenu6/3.gif")"><a href="inc.php?inc=myinfo"><img src="@Url.Content("~/images/leftmenu6/3.gif")" class="img_opacity_view"></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <img border="0" src="@Url.Content("~/images/leftmenu6/leftmenu06_08.gif")">
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" height="130">
+                                                <img border="0" src="@Url.Content("~/images/layer/layer_09.gif")" width="210" height="130">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td valign="top" style="padding-top: 15px" width="40">　</td>
+                            <td valign="top" style="padding-top: 15px;padding-bottom: 30px" width="750" height="600">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <script language="JavaScript">
+function abcd() {
+window.open('regist.htm','','toolbar=0,scrollbars=1,location=0,status=0,menubar=0,resizable=1,width=600,height=650,top=0,left=0');
+self.opener=self;
+window.close()
+}
+                                                </script>
+                                                <script language="JavaScript">
+function abcde() {
+window.open('idpw_find.php','','toolbar=0,scrollbars=0,location=0,status=0,menubar=0,resizable=1,width=320,height=180,top=10,left=400');
+self.opener=self;
+window.close()
+}
+                                                </script>
+
+
+
+                                                <script language="JavaScript">
+<!--
+
+
+function login_check(){
+  var f = document.mreg;
+  if(!f.usid.value){
+    f.usid.focus();
+    return;
+  }
+  if(!f.u_pass.value){
+    f.u_pass.focus();
+    return;
+  }
+  f.submit();
+}
+
+function login_st(){
+  var f = document.mreg;
+  if(!f.usid.value){
+    f.usid.focus();
+    return;
+  }
+}
+
+//폼 체크부분(값을 비교후 true 이면 값을 submit 함)
+function submitForm()
+{
+  var f = document.mreg;
+  if(!f.usid.value){
+    alert('아이디을 입력하세요!');
+    f.usid.focus();
+    return;
+  }
+  if(!f.u_pass.value){
+    alert('비밀번호를 입력하세요!');
+    f.u_pass.focus();
+    return;
+  }
+  f.submit();
+
+  document.mreg.submit();
+}
+-->
+                                                </script>
+                                                <div align="center">
+
+                                                    <table border="0" width="550" height="500" cellspacing="0" cellpadding="0" bordercolor="#C0C0C0" align="center">
+                                                        <form name="mreg" action="member/memcheck.php" method="post" onsubmit="return submitForm();"></form>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="padding-left: 5px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px" colspan="2" height="10"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding-left: 5px; padding-top: 10px; padding-bottom: 10px" width="20">
+                                                                    <img border="0" src="@Url.Content("~/img/member/log_9.gif")" width="15" height="13">
+                                                                </td>
+                                                                <td style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px">
+                                                                    <p class="ft2">서비스를 이용하시려면 로그인이 필요합니다.</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="border: 2px solid #C0C0C0; padding: 10px;padding-left: 30px;padding-right: 30px" colspan="2" width="100%" align="center">
+                                                                    <table border="0" width="90%" cellspacing="0" cellpadding="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td colspan="3" style="padding-bottom: 6px;border-bottom: 2px solid #6776C2;" width="100%">
+                                                                                    <table wdith="100%" border="0"><tbody><tr><td><img border="0" src="@Url.Content("~/img/member/log_1.gif")" width="115" height="39"></td></tr></tbody></table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="3" height="40">
+                                                                                    <p class="ft3">
+                                                                                        PUT YOUR <font color="#6776C2">ID</font> AND <font color="#6776C2">
+                                                                                            PASSWORD
+                                                                                        </font>
+                                                                                    </p>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td height="20">&nbsp;　</td>
+                                                                                <td>　</td>
+                                                                                <td>　</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="padding-left: 50px;" width="120">
+                                                                                    <p class="ft3">ID</p>
+                                                                                </td>
+                                                                                <td><input type="text" name="usid" size="16" tabindex="1" onkeyup="if(event.keyCode==13)login_check();" style="ime-mode:disabled" value=""></td>
+                                                                                <td rowspan="2" style="padding-right: 10px" width="250" align="left">
+                                                                                    <a href="javascript:submitForm();"><img border="0" src="@Url.Content("~/img/member/log_5.gif")" width="86" height="49" align="right"></a>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="padding-left: 50px;" width="120">
+                                                                                    <p class="ft3">PASSWORD</p>
+                                                                                </td>
+                                                                                <td><input type="password" name="u_pass" size="16" tabindex="2" onkeyup="if(event.keyCode==13)login_check();" value=""></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>　</td>
+                                                                                <td colspan="2">
+                                                                                    <p class="ft3">
+                                                                                        <input type="checkbox" name="C1"> ID SAVE
+                                                                                    </p>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <!--
+                                                                                        <tr>
+                                                                                            <td colspan="3" style="border-bottom: 1px solid #C0C0C0; padding: 0">　</td>
+                                                                                        </tr>
+                                                                            -->
+                                                                            <tr>
+                                                                                <td height="20">&nbsp;　</td>
+                                                                                <td>　</td>
+                                                                                <td>　</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="3"></td>
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding-left: 5px; padding-top: 10px; padding-bottom: 10px" width="20">
+                                                                    <img border="0" src="@Url.Content("~/img/member/log_8.gif")" width="16" height="14">
+                                                                </td>
+                                                                <td style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px" width="98%">
+                                                                    <p class="ft2">회원님의 개인정보보호를 위하여 사용자의 암호는 주기적으로 변경 관리하시고 타인에게 노출되지 않도록 주의하시길 바랍니다.</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding-left: 5px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px" colspan="2" height="50"></td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
