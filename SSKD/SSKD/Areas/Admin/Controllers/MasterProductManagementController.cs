@@ -22,6 +22,7 @@ namespace SSKD.Areas.Admin.Controllers
             IDbConnection dbConn = new OrmliteConnection().openConn();
             var dict = new Dictionary<string, object>();
             dict["activestatus"] = CustomModel.GetActiveStatus();
+            dict["categorys"] = CustomModel.GetCategoryDDL();
             dict["listlanguage"] = CustomModel.GetLanguage();
             dict["areasname"] = "Admin";
             dict["redirectbyajax"] = string.IsNullOrEmpty(redirectbyajax) ? "0" : "1";

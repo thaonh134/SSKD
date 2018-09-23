@@ -17,6 +17,7 @@ namespace SSKD.Areas.Admin.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        public string CaptchaCode { get; set; }
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
@@ -34,7 +35,7 @@ namespace SSKD.Areas.Admin.Models
             List<SqlParameter> param = new List<SqlParameter>();
             param.Add(new SqlParameter("@UserName", userName));
             param.Add(new SqlParameter("@Password", password));
-            DataTable dt = new SqlHelper().ExecuteQuery("p_Auth_User_Login", param);
+            DataTable dt = new SqlHelper().ExecuteQuery("p_Auth_User_AdminLogin", param);
             return dt.Rows.Count > 0;
         }
 

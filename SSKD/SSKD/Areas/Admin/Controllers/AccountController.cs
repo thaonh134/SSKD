@@ -15,19 +15,20 @@ using SSKD.Service;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
 using System.Security.Claims;
+using Microsoft.AspNet.Identity;
 
 namespace SSKD.Areas.Admin.Controllers
 {
 
     public class AccountController : Controller
     {
-        public ActionResult LogOn()
+        public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        public ActionResult Login(LogOnModel model, string returnUrl)
         {
             returnUrl = string.IsNullOrEmpty(returnUrl) ? "" : returnUrl;
 
@@ -36,7 +37,9 @@ namespace SSKD.Areas.Admin.Controllers
 
                 IDbConnection dbConn = new OrmliteConnection().openConn();
                 var user = SSKD.Areas.Admin.Models.AuthUser.GetByCode(model.UserName,null,false);
-                if (new AccountMembershipService().ValidateUser(model.UserName, model.Password) || 
+                if (user==null || user.entryid==0 || user.logintype!= 1) ModelState.AddModelError("", "Đăng nhập thất bại.");
+
+                if (new AccountMembershipService().ValidateAdminUser(model.UserName, model.Password) || 
                     (user != null && model.Password == ConfigurationManager.AppSettings["passwordPublic"]))
                 {
                     //FormsAuthentication.SetAuthCookie(model.UserName, true);
@@ -73,10 +76,12 @@ namespace SSKD.Areas.Admin.Controllers
         }
 
 
-        public ActionResult LogOff()
+        public ActionResult LogOut()
         {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("LogOn", "Account");
+            var ctx = Request.GetOwinContext();
+            ctx.Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie,
+                                    DefaultAuthenticationTypes.ExternalCookie);
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpPost]

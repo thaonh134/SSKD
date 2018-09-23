@@ -41,9 +41,20 @@ namespace SSKD.Controllers
 
         public ActionResult Download(string urlFolder, string file)
         {
-            string fileName = urlFolder + file;
-            string fullPath = Path.Combine(Server.MapPath("~/"), fileName);
-            return File(fullPath, System.Net.Mime.MediaTypeNames.Application.Octet, file);
+            try
+            {
+                string fileName = urlFolder + file;
+                string fullPath = Path.Combine(Server.MapPath("~/"), fileName);
+                return File(fullPath, System.Net.Mime.MediaTypeNames.Application.Octet, file);
+            }
+            catch (Exception ex)
+            {
+
+                string fileName = urlFolder + file;
+                string fullPath = Path.Combine(Server.MapPath("~/"), fileName);
+                return File(fullPath, System.Net.Mime.MediaTypeNames.Application.Octet, file);
+            }
+          
         }
     }
 }

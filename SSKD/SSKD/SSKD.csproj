@@ -18,7 +18,8 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44310</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -239,33 +240,41 @@
     <Compile Include="Areas\Admin\Controllers\AdminUserManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MasterContactRequestManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MasterHomePageManagement2Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\MasterCategoryManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MasterHomePageManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\MasterProductManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\MasterSubCategoryManagementController.cs" />
     <Compile Include="Areas\Admin\Models\AccountModel.cs" />
     <Compile Include="Areas\Admin\Models\AuthMenu.Model.cs" />
     <Compile Include="Areas\Admin\Models\AuthUser.Model.cs" />
+    <Compile Include="Areas\Admin\Models\AutoGen\HomePage.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\AuthMenuBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\AuthUserBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\CategoryBase.Model.cs" />
+    <Compile Include="Areas\Admin\Models\AutoGen\ContactRequestBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\ProductBase.Model.cs" />
     <Compile Include="Areas\Admin\Models\AutoGen\SubCategoryBase.Model.cs" />
+    <Compile Include="Areas\Admin\Models\HomePage.Model.cs" />
     <Compile Include="Areas\Admin\Models\Category.Model.cs" />
     <Compile Include="Areas\Admin\Models\CommonModel.cs" />
     <Compile Include="Areas\Admin\Models\CustomModel.cs" />
     <Compile Include="Areas\Admin\Models\DDLModel.cs" />
     <Compile Include="Areas\Admin\Models\MasterData.cs" />
+    <Compile Include="Areas\Admin\Models\ContactRequest.Model.cs" />
     <Compile Include="Areas\Admin\Models\Product.Model.cs" />
     <Compile Include="Areas\Admin\Models\SubCategory.Model.cs" />
+    <Compile Include="AutoMap\Be_Mapper.cs" />
     <Compile Include="AutoMap\Fe_Mapper.cs" />
+    <Compile Include="ConstantValue\Common.Model.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\Community.cs" />
+    <Compile Include="Controllers\CommunityController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,7 +296,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Content\sound\messagebox.mp3" />
     <Content Include="Admin\Content\sound\smallbox.mp3" />
+    <Content Include="bbs\icon\ico_first_off.gif" />
+    <Content Include="bbs\icon\ico_next_off.gif" />
     <Content Include="Content\ajax\email-compose.html" />
     <Content Include="Content\ajax\email-opened.html" />
     <Content Include="Content\ajax\email-reply.html" />
@@ -357,6 +369,7 @@
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logo_login.jpg" />
     <Content Include="Content\img\mybg.png" />
+    <Content Include="Content\img\select2-spinner.gif" />
     <Content Include="Content\kendo\2014.2.903\Black\editor.png" />
     <Content Include="Content\kendo\2014.2.903\Black\imagebrowser.png" />
     <Content Include="Content\kendo\2014.2.903\Black\indeterminate.gif" />
@@ -881,6 +894,7 @@
     <Content Include="Content\kendo\2015.1.429\Uniform\sprite_2x.png" />
     <Content Include="Content\kendo\2015.1.429\Uniform\sprite_kpi.png" />
     <Content Include="Content\kendo\2015.1.429\Uniform\sprite_kpi_2x.png" />
+    <Content Include="css\FeSite.css" />
     <Content Include="Content\sound\bigbox.mp3" />
     <Content Include="Content\sound\license.txt" />
     <Content Include="Content\sound\messagebox.mp3" />
@@ -897,10 +911,33 @@
     <Content Include="Files\Download\a324381e-20ea-4113-9bc7-c5a29a5d5bf0.jpg" />
     <Content Include="Files\Download\cfcaf73a-266b-4b43-bd9d-9af304fb11b8.jpg" />
     <Content Include="flash.js" />
+    <Content Include="flash\main_img.swf" />
+    <Content Include="flash\sub_img.swf" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\layer\layer_02.jpg" />
     <Content Include="images\layer\layer_03.jpg" />
+    <Content Include="images\layer\layer_04.jpg" />
+    <Content Include="images\layer\layer_09.gif" />
+    <Content Include="images\layer\layer_top_bg.jpg" />
+    <Content Include="images\leftmenu1\1.gif" />
+    <Content Include="images\leftmenu1\1_over.gif" />
+    <Content Include="images\leftmenu1\2.gif" />
+    <Content Include="images\leftmenu1\leftmenu01.gif" />
+    <Content Include="images\leftmenu1\leftmenu01_03.gif" />
+    <Content Include="images\leftmenu1\leftmenu01_06.gif" />
+    <Content Include="images\leftmenu2\leftmenu02.gif" />
+    <Content Include="images\leftmenu3\leftmenu03.gif" />
+    <Content Include="images\leftmenu4\leftmenu04.gif" />
+    <Content Include="images\leftmenu5\leftmenu05.gif" />
+    <Content Include="images\leftmenu6\1.gif" />
+    <Content Include="images\leftmenu6\2.gif" />
+    <Content Include="images\leftmenu6\2_over.gif" />
+    <Content Include="images\leftmenu6\3.gif" />
+    <Content Include="images\leftmenu6\leftmenu06.gif" />
+    <Content Include="images\leftmenu6\leftmenu06_03.gif" />
+    <Content Include="images\leftmenu6\leftmenu06_08.gif" />
     <Content Include="images\main\main_01.jpg" />
     <Content Include="images\main\main_02.jpg" />
     <Content Include="images\main\main_04.jpg" />
@@ -914,8 +951,15 @@
     <Content Include="images\main\main_19.gif" />
     <Content Include="images\main\main_20.gif" />
     <Content Include="images\main\main_21.gif" />
+    <Content Include="images\sub1\sub1_01.gif" />
+    <Content Include="images\sub1\sub1_02.gif" />
+    <Content Include="images\sub1\sub1_02_old.gif" />
     <Content Include="img\icon_n.gif" />
     <Content Include="img\line_bg.gif" />
+    <Content Include="img\member\log_1.gif" />
+    <Content Include="img\member\log_5.gif" />
+    <Content Include="img\member\log_8.gif" />
+    <Content Include="img\member\log_9.gif" />
     <Content Include="js\css\lightbox.css" />
     <Content Include="lib\set_menu.js" />
     <Content Include="Scripts\app.config.js" />
@@ -959,7 +1003,7 @@
     <Content Include="Areas\Admin\Views\MasterProductManagement\ProductManagementTree.cshtml" />
     <Content Include="Areas\Admin\Views\MasterSubCategoryManagement\SubCategoryManagementForm.cshtml" />
     <Content Include="Areas\Admin\Views\MasterSubCategoryManagement\SubCategoryManagementTree.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\LogOn.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Error\ErrorPage.cshtml" />
     <Content Include="Areas\Admin\Views\Error\NoAccess.cshtml" />
     <Content Include="Areas\Admin\Views\Error\NotFound.cshtml" />
@@ -1033,17 +1077,24 @@
     <Content Include="Content\sound\voice_off.ogg" />
     <Content Include="Content\sound\voice_on.ogg" />
     <Content Include="Areas\Admin\Views\AdminUserManagement\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MasterHomePageManagement\HomePageManagementForm.cshtml" />
+    <Content Include="Areas\Admin\Views\MasterHomePageManagement\HomePageManagementTree.cshtml" />
+    <Content Include="Areas\Admin\Views\MasterContactRequestManagement\ContactRequestManagementForm.cshtml" />
+    <Content Include="Areas\Admin\Views\MasterContactRequestManagement\ContactRequestManagementTree.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap\bootbox.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap\jquery.tmpl.js" />
     <Content Include="Scripts\daterangepicker.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1922,7 +1973,9 @@
     <Content Include="Upload\default_img_user.png" />
     <Content Include="Upload\Images\20170323150413_160630084301_ZC.jpg" />
     <Content Include="Upload\Images\Avatar\20160928192833.gif" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -2217,9 +2270,22 @@
     <Content Include="Scripts\plugin\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Scripts\plugin\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Scripts\plugin\ckeditor\skins\moono\readme.md" />
+    <Content Include="Views\Shared\_CaptchaRandomPartial.cshtml" />
+    <Content Include="Views\Shared\_LeftMenuInforPartial.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Shared\_FooterInfor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\leftmenu7\" />
+    <Folder Include="images\leftmenu8\" />
+    <Folder Include="images\sub2\" />
+    <Folder Include="images\sub3\" />
+    <Folder Include="images\sub4\" />
+    <Folder Include="images\sub5\" />
+    <Folder Include="images\sub6\" />
+    <Folder Include="images\sub7\" />
+    <Folder Include="images\sub8\" />
     <Folder Include="Upload\Avatar\" />
     <Folder Include="Upload\Bank\" />
   </ItemGroup>
@@ -2258,7 +2324,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57596</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44310/</IISUrl>
+          <IISUrl>http://localhost:57596/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>https://localhost:44310/</CustomServerUrl>

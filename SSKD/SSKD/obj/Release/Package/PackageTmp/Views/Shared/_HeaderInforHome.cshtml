@@ -1,0 +1,194 @@
+﻿@using SSKD.Models;
+@{
+
+    var data_menu = DefaultView.FE_MenuItem.GetHomeItem();
+}
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td align="center" background="@Url.Content("~/images/main/main_01.jpg")" height="480" valign="top">
+                <table border="0" width="1000" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td height="105" valign="top" background="@Url.Content("~/images/main/main_02.jpg")">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td width="1000" align="right" style="padding-left:5px;padding-right:15px;">
+                                                <a href="@Url.Action("Index","Home")">Trang chủ</a>&nbsp; |&nbsp;
+                                                @Html.Partial("_LoginPartial")
+                                                @*<a href="javascript:window.external.AddFavorite('http://shinsung.home8282.kr','SHINSUNGKD')">BOOKMARK</a>*@
+                                                &nbsp;|&nbsp;
+                                                @*<a href="../../niabbs4/">KOREAN</a>*@
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="1000" align="center" style="padding-left:5px;padding-right:5px">
+                                                <style type="text/css">
+                                                    .submenu {
+                                                        display: none;
+                                                        width: 100%
+                                                    }
+
+                                                    .menuImg {
+                                                        border: 0px;
+                                                    }
+                                                </style>
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="top" width="310"><a href="@Url.Action("Index","Home")"><img border="0" src="@Url.Content("~/images/layer/layer_03.jpg")" width="237" height="46"></a></td>
+                                                            @{
+                                                                int menuid = 100;
+                                                                foreach (var menu in data_menu)
+                                                                {
+                                                                    <td width="130" align="center" valign="bottom"><p id="@string.Concat("menu",menuid.ToString())" class="menuImg" style="margin-top: 0px; margin-bottom: 10px"><font size="3"><b><a href="@Url.Action(menu.action,menu.controller)">@menu.menuName</a></b></font></p></td>
+                                                                    menuid++;
+                                                                }
+                                                            }
+
+                                                            @*<td width="130" align="center" valign="bottom"><p id="menu100" class="menuImg" style="margin-top: 0px; margin-bottom: 10px"><font size="3"><b><a href="@Url.Action("Index","company")">COMPANY</a></b></font></p></td>
+        <td width="130" align="center" valign="bottom"><p id="menu101" class="menuImg" style="margin-top: 0px; margin-bottom: 10px"><font size="3"><b><a href="@Url.Action("Index","Product")">PRODUCTS</a></b></font></p></td>
+        <td width="130" align="center" valign="bottom"><p id="menu102" class="menuImg" style="margin-top: 0px; margin-bottom: 10px"><font size="3"><b><a href="@Url.Action("Index","Gallery")">GALLERY</a></b></font></p></td>
+        <td width="130" align="center" valign="bottom"><p id="menu103" class="menuImg" style="margin-top: 0px; margin-bottom: 10px"><font size="3"><b><a href="@Url.Action("Index","Order")">ORDER</a></b></font></p></td>
+        <td width="170" align="center" valign="bottom"><p id="menu104" class="menuImg" style="margin-top: 0px; margin-bottom: 10px"><font size="3"><b><a href="@Url.Action("Index","Community")">COMMUNITY</a></b></font></p></td>*@
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tbody>
+                                                        <tr id="submenu100" class="submenu">
+                                                            <td colspan="6" style="padding-left: 280px;padding-top: 17px" width="100%">
+                                                                <p style="margin-top: 0px; margin-bottom: 0px">
+                                                                    @foreach (var menu in data_menu.Where(x => x.controller.ToLower() == "Company".ToLower()).ToList())
+                                                                    {
+                                                                        foreach (var supmenu in menu.menusubitems)
+                                                                        {
+                                                                            <a href="@Url.Action(supmenu.action,supmenu.controller)"><b><font color="black">@supmenu.submenuname</font></b></a>
+
+                                                                        }
+
+                                                                    }
+                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                </p>
+
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr id="submenu101" class="submenu">
+                                                            <td colspan="6" style="padding-left: 265px;padding-top: 17px" width="100%">
+                                                                <p style="margin-top: 0px; margin-bottom: 0px">
+                                                                    @foreach (var menu in data_menu.Where(x => x.controller.ToLower() == "Product".ToLower()).ToList())
+                                                                    {
+                                                                        foreach (var supmenu in menu.menusubitems)
+                                                                        {
+                                                                            <a href="@Url.Action(supmenu.action,supmenu.controller,new { Type=supmenu.parameter})"><b><font color="black">@supmenu.submenuname</font></b></a>@Html.Raw("&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;")
+                                                                        }
+
+                                                                    }
+
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+
+
+
+                                                        <tr id="submenu102" class="submenu">
+                                                            <td colspan="6" style="padding-left: 580px;padding-top: 17px" width="100%">
+                                                                <p style="margin-top: 0px; margin-bottom: 0px">
+                                                                    @foreach (var menu in data_menu.Where(x => x.controller.ToLower() == "Gallery".ToLower()).ToList())
+                                                                    {
+                                                                        foreach (var supmenu in menu.menusubitems)
+                                                                        {
+                                                                            <a href="@Url.Action(supmenu.action,supmenu.controller)"><b><font color="black">@supmenu.submenuname</font></b></a>
+
+                                                                        }
+
+                                                                    }
+                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                </p>
+
+                                                            </td>
+                                                        </tr>
+
+
+
+                                                        <tr id="submenu103" class="submenu">
+                                                            <td colspan="6" style="padding-left: 720px;padding-top: 17px" width="100%">
+                                                                <p style="margin-top: 0px; margin-bottom: 0px">
+                                                                    @foreach (var menu in data_menu.Where(x => x.controller.ToLower() == "Order".ToLower()).ToList())
+                                                                    {
+                                                                        foreach (var supmenu in menu.menusubitems)
+                                                                        {
+                                                                            <a href="@Url.Action(supmenu.action,supmenu.controller)"><b><font color="black">@supmenu.submenuname</font></b></a>
+
+                                                                        }
+
+                                                                    }
+                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                </p>
+                                                                </p>
+
+                                                            </td>
+                                                        </tr>
+
+
+
+
+                                                        <tr id="submenu104" class="submenu">
+                                                            <td colspan="6" style="padding-left: 800px;padding-top: 17px" width="100%">
+                                                                <p style="margin-top: 0px; margin-bottom: 0px">
+                                                                    @foreach (var menu in data_menu.Where(x => x.controller.ToLower() == ("Community").ToLower()).ToList())
+                                                                    {
+                                                                        foreach (var supmenu in menu.menusubitems)
+                                                                        {
+                                                                            <a href="@Url.Action(supmenu.action,supmenu.controller)"><b><font color="black">@supmenu.submenuname</font></b></a>
+
+                                                                        }
+
+                                                                    }
+                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                                                                </p>
+
+                                                            </td>
+                                                        </tr>
+
+
+
+                                                    </tbody>
+                                                </table>
+
+
+
+
+                                                <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+                                                <script type="text/javascript">
+                                                    $(document).ready(function () {
+                                                        $(".menuImg").mouseover(function () {
+                                                            $(".submenu").css("display", "none");
+                                                            $("#sub" + $(this).attr("id")).css("display", "block");
+
+
+                                                        });
+                                                    });
+                                                </script>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" background="@Url.Content("~/images/main/main_04.jpg")">
+                                <script type="text/JavaScript">swf('@Url.Content("~/flash/main_img.swf")', 1000, 375);</script>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

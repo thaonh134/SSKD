@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using ServiceStack.OrmLite;
 using System.Text;
+using SSKD.ConstantValue;
 
 namespace SSKD.Areas.Admin.Controllers
 {
@@ -90,6 +91,9 @@ namespace SSKD.Areas.Admin.Controllers
                 if (item.entryid == 0)
                 {
                     //insert
+
+                    item.entrycode = item.entryname;
+                    item.logintype = (int)LoginType.Admin;
                     item.createdat = DateTime.Now;
                     item.createdby = currentUser.entryid;
                     item.updatedat = DateTime.Now;

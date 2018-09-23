@@ -156,7 +156,19 @@ namespace SSKD.Membership
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@UserName", username));
                 param.Add(new SqlParameter("@Password", SqlHelper.GetMd5Hash(password)));
-                DataTable dt = new SqlHelper().ExecuteQuery("p_Auth_User_Login", param);
+                DataTable dt = new SqlHelper().ExecuteQuery("p_Auth_User_AdminLogin", param);
+                return dt.Rows.Count > 0;
+            }
+            catch (Exception) { return false; }
+        }
+        public static bool ValidateAdminUser(string username, string password)
+        {
+            try
+            {
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@UserName", username));
+                param.Add(new SqlParameter("@Password", SqlHelper.GetMd5Hash(password)));
+                DataTable dt = new SqlHelper().ExecuteQuery("p_Auth_User_AdminLogin", param);
                 return dt.Rows.Count > 0;
             }
             catch (Exception) { return false; }

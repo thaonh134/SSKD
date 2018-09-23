@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Configuration;
 using AutoMapper;
+using SSKD.ConstantValue;
 
 namespace SSKD.Areas.Admin.Models
 {
@@ -126,9 +127,23 @@ namespace SSKD.Areas.Admin.Models
         {
             return ActiveStatus.GetActiveStatus();
         }
+        public static List<DDLModel> GetCategoryDDL()
+        {
+            var data= Category.GetList(0, null, false);
+            if (data == null || data.Count == 0) return new List<DDLModel>();
+            return Mapper.Map<List<DDLModel>>(data);
+        }
         public static List<DDLModel> GetLoginType()
         {
-            return LoginType.GetLoginType();
+            var listLoginTypes = Enum.GetValues(typeof(LoginType)).Cast<LoginType>();
+            var result = new List<DDLModel>();
+            foreach (var logintype in listLoginTypes)
+            {
+                result.Add(new DDLModel() { ID = Convert.ChangeType(logintype, logintype.GetTypeCode()).ToString(), Name = logintype.ToString() });
+
+            }
+
+            return result;
         }
         public static List<DDLModel> GetLanguage()
         {

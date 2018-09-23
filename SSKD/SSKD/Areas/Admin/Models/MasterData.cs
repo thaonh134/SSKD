@@ -24,13 +24,5 @@ namespace SSKD.Areas.Admin.Models
         }
     }
 
-    public static class LoginType
-    {
-      
-        public static List<DDLModel> GetLoginType()
-        {
-
-            return new List<DDLModel>() { new DDLModel() { ID = "1", Name = "System" }, new DDLModel() { ID = "2", Name = "Web" } };
-        }
-    }
+    
 }

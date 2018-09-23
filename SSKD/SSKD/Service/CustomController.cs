@@ -1,4 +1,5 @@
 ﻿using SSKD.Areas.Admin.Models;
+using SSKD.ConstantValue;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -26,6 +27,11 @@ namespace SSKD.Service
                 var UserId = claimsIdentity.FindFirst(ClaimTypes.PrimarySid).Value;
                 ViewBag.UserId = UserId;
                 currentUser = SSKD.Areas.Admin.Models.AuthUser.GetById(string.IsNullOrEmpty(UserId) ? 0 : Convert.ToInt32(UserId),null,false);
+                if (currentUser.logintype != (int)LoginType.Admin)
+                {
+                    ViewData["IsAuthenticated"] = false;
+                    ViewData["AuthUser"] = null;
+                }
                 ViewData["AuthUser"] = currentUser;
 
             }
