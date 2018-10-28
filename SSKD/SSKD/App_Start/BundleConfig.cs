@@ -160,6 +160,7 @@ namespace SSKD
 
                   //CK editor
                   "~/Scripts/plugin/ckeditor/ckeditor.js",
+                  "~/CKFinderScripts/ckfinder.js",
                    //Twin app js
                    "~/Scripts/app/app.js"
 

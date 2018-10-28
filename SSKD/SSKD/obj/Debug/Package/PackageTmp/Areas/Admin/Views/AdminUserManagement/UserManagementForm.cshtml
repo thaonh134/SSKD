@@ -3,7 +3,7 @@
 
 @{
     var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
-    var listLoginType = dict.ContainsKey("listLoginType") ? (List<DDLModel>)dict["listLoginType"] : new List<DDLModel>();
+    //var listLoginType = dict.ContainsKey("listLoginType") ? (List<DDLModel>)dict["listLoginType"] : new List<DDLModel>();
 
     var listActiveStatus = dict.ContainsKey("activestatus") ? (List<DDLModel>)dict["activestatus"] : new List<DDLModel>();
     var listLanguage = dict.ContainsKey("listlanguage") ? (List<DDLModel>)dict["listlanguage"] : new List<DDLModel>();
@@ -76,7 +76,7 @@
                         <input class="form-control input-sm" name="entryname" id="entryname" value="#=entryname!=null? entryname : ''#" placeholder="entryname" />
                     </div>
                 </div>
-                <div class="form-group" style="">
+                @*<div class="form-group" style="">
                     <label class="control-label col-md-4" style="">logintype<span class="required">*</span></label>
                     <div class=" col-md-8 ">
                         <select class="form-control input-sm" id="logintype" name="logintype">
@@ -88,7 +88,7 @@
 
 
                     </div>
-                </div>
+                </div>*@
                 <div class="form-group" style="">
                     <label class="control-label col-md-4" style="">isactive<span class="required">*</span></label>
                     <div class=" col-md-8 ">
@@ -224,7 +224,7 @@
         //generateSelect2('s', 'formPopup #roleid', data.roleid == 0 ? null : data.roleid, '100%');
         //generateSelect2('s', 'formPopup #languageid', data.languageid == 0 ? null : data.languageid, '100%');
         generateSelect2('s', 'formPopup #isactive', (data.isactive == false ? 'false' : 'true'), '100%');
-        generateSelect2('s', 'formPopup #logintype', (data.logintype == false ? 'null' : data.logintype), '100%');
+        //generateSelect2('s', 'formPopup #logintype', (data.logintype == false ? 'null' : data.logintype), '100%');
         
         //multiselect
 
@@ -254,9 +254,9 @@
                 isactive: {
                     required: true
                 },
-                logintype: {
-                    required: true
-                },
+                //logintype: {
+                //    required: true
+                //},
 
             },
 
@@ -271,9 +271,9 @@
                 isactive: {
                     required: resource_lang.Common_mess_RequiredInformation
                 },
-                logintype: {
-                    required: resource_lang.Common_mess_RequiredInformation
-                },
+                //logintype: {
+                //    required: resource_lang.Common_mess_RequiredInformation
+                //},
                
             },
 
