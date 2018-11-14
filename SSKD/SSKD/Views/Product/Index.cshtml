@@ -14,7 +14,21 @@
                 <table border="0" width="1000" cellspacing="0" cellpadding="0">
                     <tbody>
                         <tr>
-                            
+                            <td valign="top" style="padding-top: 15px" width="210">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" height="130">
+                                                <img border="0" src="@Url.Content("~/images/layer/leftmenu01.gif")" width="210" height="208">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td valign="top" style="padding-top: 15px" width="40">　</td>
                             <td valign="top" style="padding-top: 15px;padding-bottom: 30px" width="750" height="600">
                                 <table border="0" width="100%" cellspacing="0" cellpadding="0">
 
@@ -40,11 +54,7 @@
                                                 <div align="center">
                                                     <table width="700" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="15"></td><td><br></td></tr></tbody></table><table width="700" border="0" cellspacing="0" cellpadding="0">
                                                         <tbody>
-                                                            <tr id="data_productlist">
-
-                                                                
-
-                                                            </tr>
+                                                            <tr id="data_productlist"></tr>
                                                             <tr></tr>
                                                             <tr>
                                                                 <td colspan="4">
@@ -62,31 +72,31 @@
                                                                             <tr>
                                                                                 <td align="center">
                                                                                     @*<a href="bbs.php?page=1&amp;bbstable=jepumso2&amp;sss_key=&amp;ttt_key=&amp;categori11=deskpad">
-                                                                                        <font color=""><img src="bbs/icon/ico_first_off.gif" border="0" align="absmiddle"></font>
-                                                                                    </a>
-                                                                                    &nbsp;
-                                                                                    <a href="bbs.php?page=1&amp;bbstable=jepumso2&amp;sss_key=&amp;ttt_key=&amp;categori11=deskpad">
-                                                                                        <img src="bbs/icon/ico_prev_off.gif" border="0" align="absmiddle">
-                                                                                    </a>
+                                                                    <font color=""><img src="bbs/icon/ico_first_off.gif" border="0" align="absmiddle"></font>
+                                                                </a>
+                                                                &nbsp;
+                                                                <a href="bbs.php?page=1&amp;bbstable=jepumso2&amp;sss_key=&amp;ttt_key=&amp;categori11=deskpad">
+                                                                    <img src="bbs/icon/ico_prev_off.gif" border="0" align="absmiddle">
+                                                                </a>
 
-                                                                                    <a href="bbs.php?page=1&amp;bbstable=jepumso2&amp;sss_key=&amp;ttt_key=&amp;categori11=deskpad">
-                                                                                        <img src="bbs/icon/ico_next_off.gif" border="0" align="absmiddle">
-                                                                                    </a>
-                                                                                    &nbsp;&nbsp;
-                                                                                    <a href="bbs.php?page=1&amp;bbstable=jepumso2&amp;sss_key=&amp;ttt_key=&amp;categori11=deskpad">
-                                                                                        <font color="">
-                                                                                            <img src="bbs/icon/ico_end_off.gif" border="0" align="absmiddle">
-                                                                                        </font>
-                                                                                    </a>&nbsp;*@
+                                                                <a href="bbs.php?page=1&amp;bbstable=jepumso2&amp;sss_key=&amp;ttt_key=&amp;categori11=deskpad">
+                                                                    <img src="bbs/icon/ico_next_off.gif" border="0" align="absmiddle">
+                                                                </a>
+                                                                &nbsp;&nbsp;
+                                                                <a href="bbs.php?page=1&amp;bbstable=jepumso2&amp;sss_key=&amp;ttt_key=&amp;categori11=deskpad">
+                                                                    <font color="">
+                                                                        <img src="bbs/icon/ico_end_off.gif" border="0" align="absmiddle">
+                                                                    </font>
+                                                                </a>&nbsp;*@
 
                                                                                     <span>
                                                                                         <button id="btnfindfirst" onclick="showfirst()" style="background-color:transparent;border:none;"><font color=""><img src="@Url.Content("~/bbs/icon/ico_first_off.gif")" border="0" align="absmiddle"></font></button>
                                                                                         &nbsp;
-                                                                                        <font color="">[<font color="red"><b>1</b></font>]</font>
+                                                                                        <font color="">[<font color="red"><b id="pageNum" >1</b></font>]</font>
                                                                                         &nbsp;
-                                                                                        <button id="btnshowmore" onclick="showmore()"  style="background-color:transparent;border:none;"><font color=""><img src="@Url.Content("~/bbs/icon/ico_next_off.gif")" border="0" align="absmiddle"></font></button>
+                                                                                        <button id="btnshowmore" onclick="showmore()" style="background-color:transparent;border:none;"><font color=""><img src="@Url.Content("~/bbs/icon/ico_next_off.gif")" border="0" align="absmiddle"></font></button>
                                                                                     </span>
-                                                                                   
+
                                                                                 </td>
                                                                             </tr>
                                                                             <!------- 페이지 넘버 종료 ------->
@@ -193,6 +203,7 @@
         /**/
             //var tmp = $(".row list-product-row");
             var tmp2 = $("#data_productlist");
+            tmp2.empty();
             for (var i = 0; i < data.dataresult.length; i++) {
                 var tmpr = '@Url.Action("Detail", "Product")';
                 data.dataresult[i].UrlAction = tmpr + '?id=' + data.dataresult[i].ProductId;
@@ -202,8 +213,11 @@
                 var template = $('#ProductItemTemplate').tmpl(data.dataresult[i]);
                 tmp2.append(template);
             }
+
             if (data && data.total)
                 jQuery("#frmsearchpaging #totalpage").val(data.total);
+
+            $('#pageNum').text(jQuery("#frmsearchpaging #pagenum").val());
 
     });
     }
