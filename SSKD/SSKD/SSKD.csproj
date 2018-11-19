@@ -1134,9 +1134,11 @@
     <Content Include="images\main\main_19.gif" />
     <Content Include="images\main\main_20.gif" />
     <Content Include="images\main\main_21.gif" />
+    <Content Include="images\main_img.jpg" />
     <Content Include="images\sub1\sub1_01.gif" />
     <Content Include="images\sub1\sub1_02.gif" />
     <Content Include="images\sub1\sub1_02_old.gif" />
+    <Content Include="images\sub_img.jpg" />
     <Content Include="img\icon_n.gif" />
     <Content Include="img\line_bg.gif" />
     <Content Include="img\member\log_1.gif" />
