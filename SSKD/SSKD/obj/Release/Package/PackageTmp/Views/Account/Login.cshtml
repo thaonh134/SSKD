@@ -1,0 +1,211 @@
+﻿@using SSKD.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td align="center">
+                <table border="0" width="1000" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            
+                            <td valign="top" style="padding-top: 15px;padding-bottom: 30px" width="750" height="600">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+
+                                    <tbody>
+                                        <tr>
+                                            <td>
+
+                                                <div align="center">
+                                                    <form id="FormLogin" name="mreg" action="@Url.Action("Login","Account")" method="post">
+                                                        <table border="0" width="550" height="500" cellspacing="0" cellpadding="0" bordercolor="#C0C0C0" align="center">
+
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="padding-left: 5px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px" colspan="2" height="10"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding-left: 5px; padding-top: 10px; padding-bottom: 10px" width="20">
+                                                                        <img border="0" src="@Url.Content("~/img/member/log_9.gif")" width="15" height="13">
+                                                                    </td>
+                                                                    <td style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px">
+                                                                        <p class="ft2">Bạn cần phải đăng nhập để sử dụng dịch vụ.</p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 2px solid #C0C0C0; padding: 10px;padding-left: 30px;padding-right: 30px" colspan="2" width="100%" align="center">
+                                                                        <table border="0" width="90%" cellspacing="0" cellpadding="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td colspan="3" style="padding-bottom: 6px;border-bottom: 2px solid #6776C2;" width="100%">
+                                                                                        <table wdith="100%" border="0"><tbody><tr><td><img border="0" src="@Url.Content("~/img/member/log_1.gif")" width="115" height="39"></td></tr></tbody></table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td colspan="3" height="40">
+                                                                                        <p class="ft3">
+                                                                                           Vui lòng nhập thông tin <font color="#6776C2">ID</font> vả <font color="#6776C2">
+                                                                                                mật khẩu
+                                                                                            </font>của bạn
+                                                                                        </p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td height="20">&nbsp;　</td>
+                                                                                    <td>　</td>
+                                                                                    <td>　</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding-left: 50px;" width="120">
+                                                                                        <p class="ft3">ID</p>
+                                                                                    </td>
+                                                                                    <td><input type="text" name="UserName" id="UserName" size="16" tabindex="1" style="ime-mode:disabled" value=""></td>
+                                                                                    <td rowspan="2" style="padding-right: 10px" width="250" align="left">
+                                                                                        <a href="javascript:submitForm();"><img border="0" src="@Url.Content("~/img/member/log_5.gif")" width="86" height="49" align="right"></a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding-left: 50px;" width="120">
+                                                                                        <p class="ft3">Mật khẩu</p>
+                                                                                    </td>
+                                                                                    <td><input type="password" name="Password" id="Password" size="16" tabindex="2" value=""></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="padding-left: 50px;" width="120">
+                                                                                        <p class="ft3">@Html.Partial("_CaptchaRandomPartial")</p>
+                                                                                    </td>
+                                                                                    <td><input type="text" name="CaptchaCode" id="CaptchaCode" placeholder="Mã xác minh" size="16" tabindex="2" value=""></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>　</td>
+                                                                                    <td colspan="2">
+                                                                                        <p class="ft3">
+                                                                                            <input type="checkbox" name="RememberMe" id="RememberMe"> Lưu mật khẩu
+                                                                                        </p>
+                                                                                    </td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>　</td>
+                                                                                    <td colspan="2">
+                                                                                        <p class="ft3">
+                                                                                            @ViewBag.message
+                                                                                        </p>
+                                                                                    </td>
+
+                                                                                </tr>
+                                                                                <!--
+                <tr>
+                    <td colspan="3" style="border-bottom: 1px solid #C0C0C0; padding: 0">　</td>
+                </tr>
+    -->
+                                                                                <tr>
+                                                                                    <td height="20">&nbsp;　</td>
+                                                                                    <td>　</td>
+                                                                                    <td>　</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td colspan="3"></td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding-left: 5px; padding-top: 10px; padding-bottom: 10px" width="20">
+                                                                        <img border="0" src="@Url.Content("~/img/member/log_8.gif")" width="16" height="14">
+                                                                    </td>
+                                                                    <td style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px" width="98%">
+                                                                        <p class="ft2">
+                                                                            Để bảo vệ thông tin cá nhân của bạn, hãy giữ mật khẩu của bạn được kiểm soát định kỳ và không được tiếp xúc với những người khác.
+                                                                        </p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding-left: 5px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px" colspan="2" height="50"></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script language="JavaScript">
+    function abcd() {
+        window.open('regist.htm', '', 'toolbar=0,scrollbars=1,location=0,status=0,menubar=0,resizable=1,width=600,height=650,top=0,left=0');
+        self.opener = self;
+        window.close()
+    }
+</script>
+<script language="JavaScript">
+    function abcde() {
+        window.open('idpw_find.php', '', 'toolbar=0,scrollbars=0,location=0,status=0,menubar=0,resizable=1,width=320,height=180,top=10,left=400');
+        self.opener = self;
+        window.close()
+    }
+</script>
+
+<script language="JavaScript">
+    
+    function login_check() {
+        var f = document.mreg;
+        if (!f.usid.value) {
+            f.usid.focus();
+            return;
+        }
+        if (!f.u_pass.value) {
+            f.u_pass.focus();
+            return;
+        }
+        f.submit();
+    }
+
+    function login_st() {
+        var f = document.mreg;
+        if (!f.usid.value) {
+            f.usid.focus();
+            return;
+        }
+    }
+
+    //폼 체크부분(값을 비교후 true 이면 값을 submit 함)
+    function submitForm() {
+        var UserName = $("#FormLogin #UserName");
+        var Password = $("#FormLogin #Password");
+        var CaptchaCode = $("#FormLogin #CaptchaCode");
+        if (!UserName) {
+            alert('Please enter your ID!');
+            f.usid.focus();
+            return;
+        }
+        if (!Password) {
+            alert('Please enter your Password!');
+            f.u_pass.focus();
+            return;
+        }
+        if (!CaptchaCode) {
+            alert('Please enter your CaptchaCode!');
+            f.u_pass.focus();
+            return;
+        }
+        $("#FormLogin").submit();
+
+        document.mreg.submit();
+    }
+</script>

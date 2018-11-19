@@ -1,0 +1,211 @@
+﻿@using SSKD.Models;
+@{
+    ViewBag.Title = "Index";
+    var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
+    var data_product = dict.ContainsKey("data_product") && (DefaultView.FE_Product)dict["data_product"] != null ? (DefaultView.FE_Product)dict["data_product"] : new DefaultView.FE_Product();
+    var data_ListOrderProduct = DefaultView.ListOrderProduct();
+}
+
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td align="center">
+                <table border="0" width="1000" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td valign="top" style="padding-top: 15px" width="210">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" height="130">
+                                                <img border="0" src="@Url.Content("~/images/layer/leftmenu01.gif")" width="210" height="208">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td valign="top" style="padding-top: 15px" width="40">　</td>
+                            <td valign="top" style="padding-top: 15px;padding-bottom: 30px" width="750" height="600">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+
+                                    <tbody>
+                                        <tr>
+                                            <td>
+
+                                                <table border="0" width="750" cellspacing="0" cellpadding="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <span class="titlePage">@data_product.ProductName</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+
+
+
+                                                <div align="center">
+                                                    <table width="700" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="15"></td><td><br></td></tr></tbody></table><table width="700" border="0" cellspacing="0" cellpadding="0">
+
+
+
+
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td height="300" valign="top" align="right">
+                                                                    <table border="0" width="750" cellspacing="0" cellpadding="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td width="300" height="300" valign="top">
+                                                                                    <img border="0" src="@data_product.ProductImg" width="278" height="270">
+                                                                                </td>
+                                                                                <td width="50">　</td>
+                                                                                <td width="400" valign="top">
+                                                                                    <table border="0" width="400" cellspacing="0" cellpadding="0">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td width="100" style="border-top: 1px solid #C0C0C0;border-bottom: 1px solid #C0C0C0; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px" bgcolor="#F5F5F5" align="center">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px">
+                                                                                                        <b>Product</b>
+                                                                                                    </p>
+                                                                                                </td>
+                                                                                                <td width="300" style="border-top: 1px solid #C0C0C0;border-bottom: 1px solid #C0C0C0; padding-left: 10px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px">
+                                                                                                        @data_product.ProductName
+                                                                                                    </p>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td width="100" style="border-bottom: 1px solid #C0C0C0; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px" bgcolor="#F5F5F5" align="center">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px">
+                                                                                                        <b>Manufacturer</b>
+                                                                                                    </p>
+                                                                                                </td>
+                                                                                                <td width="300" style="border-bottom: 1px solid #C0C0C0; padding-left: 10px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px">
+                                                                                                        @data_product.Brand
+                                                                                                    </p>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td width="100" style="border-bottom: 1px solid #C0C0C0; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px" bgcolor="#F5F5F5" align="center">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px">
+                                                                                                        <b>product contents</b>
+                                                                                                    </p>
+                                                                                                </td>
+                                                                                                <td width="300" style="border-bottom: 1px solid #C0C0C0; padding-left: 10px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px">@data_product.Contents </p>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td width="100" style="border-bottom: 1px solid #C0C0C0; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px" bgcolor="#F5F5F5" align="center">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px">
+                                                                                                        <b>Etc</b>
+                                                                                                    </p>
+                                                                                                </td>
+                                                                                                <td width="300" style="border-bottom: 1px solid #C0C0C0; padding-left: 10px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px"><textarea rows="4" style="width: 100%;" disabled="disabled"   > @data_product.Ectdes</textarea> </p>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+
+                                                            @if (!string.IsNullOrEmpty(data_product.ProductImgMore))
+                                                            {
+                                                                foreach (var imageUrl in data_product.ProductImgMore.Split(';'))
+                                                                {
+                                                                    <tr>
+                                                                        <td style="padding-left: 15; padding-right: 15" valign="top">
+                                                                            <font color="black">
+                                                                                <p>&nbsp;</p><br>
+                                                                                <p style="TEXT-ALIGN: center"><img src="@imageUrl" class="txc-image" style="FLOAT: none; CLEAR: none" width="700"></p><br>
+                                                                                <p>&nbsp;</p>
+                                                                            </font>
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+                                                            }
+                                                            <tr>
+                                                                <td width="300" style="border-bottom: 1px solid #C0C0C0; padding-left: 10px; padding-right: 10px; padding-top: 1px; padding-bottom: 1px" height="150">
+                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px">
+                                                                        @Html.Raw(HttpUtility.HtmlDecode(data_product.Comments))
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td height="10">&nbsp;</td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div><br><br>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+  
+<script language="JavaScript" type="text/JavaScript">
+   
+    function del() {
+        window.open('bbsskin/BBS4_JEPUMPHOTO_IE10/delete.php?no=2&bbstable=jepumso2&pgm_name=/', '', 'width=300,height=170,toolbars=no,scrollbars=no,resize=yes,top=230,left=350');
+    }
+    function deldel(a) {
+        window.open('bbs/ddboarddel.php?ddno=' + a, '', 'width=300,height=170,toolbars=no,scrollbars=no,resize=yes,top=230,left=350');
+    }
+    function ddboardmody(a) {
+        window.open('bbs/ddboardmody.php?ddno=' + a, '', 'width=600,height=270,toolbars=no,scrollbars=no,resize=yes,top=230,left=350');
+    }
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+
+    /***********************************
+    / 이미지 사이즈본문 크기에 맞추기
+    /***********************************/
+    function autoImageSize(size) {
+        var OImg = event.srcElement;
+        if (OImg.offsetWidth > size) OImg.width = size;
+    }
+
+
+
+    //핸드폰 문자창띄우기
+
+    function popmail_all() {
+        window.open("allmail.php?tomail=1&name=SHIN SUNG KD", "", "width=413, height=550, top=10,left=549");
+    }
+
+    function popphone_all() {
+        window.open("sms8282kr/allsendsms.php?to=600*400&from=&search_key=&search_wrd=&search_wrd2=&last_date=", "", "width=627, height=637, top=50,left=300");
+    }
+
+    function popphone() {
+        window.open("sms8282kr/sendsms.php?to=600*400", "", "width=627, height=637, top=50,left=300");
+    }
+
+    function popmail() {
+        window.open("mail.php?tomail=1&name=SHIN SUNG KD", "", "width=413, height=550, top=10,left=549");
+    }
+
+</script>

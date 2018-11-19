@@ -110,7 +110,11 @@
                                                                                                     </p>
                                                                                                 </td>
                                                                                                 <td width="300" style="border-bottom: 1px solid #C0C0C0; padding-left: 10px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px">
-                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px"><textarea rows="4" style="width: 100%;" disabled="disabled"   > @data_product.Ectdes</textarea> </p>
+                                                                                                    @if (!string.IsNullOrEmpty(data_product.Ectdes))
+                                                                                                    {
+                                                                                                        <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px"><textarea rows="4" style="width: 100%;" disabled="disabled"> @data_product.Ectdes</textarea> </p>
+                                                                                                    }
+
                                                                                                 </td>
                                                                                             </tr>
                                                                                         </tbody>

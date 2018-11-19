@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+}
+<form id="sendcontactrequest" name="sendcontactrequest" method="post" class="checkout woocommerce-checkout" action="@Url.Action("SaveContactRequest","Community")" enctype="multipart/form-data" novalidate="novalidate">
+    <table border="0" width="100%" cellspacing="0" cellpadding="0" class="ContactRequest">
+        <tbody>
+            <tr>
+                <td align="center">
+                    <table border="0" width="1000" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            
+
+                            <tr>
+
+                                <td valign="top" style="padding-top: 15px;padding-bottom: 30px">
+                                    <h3>Vui lòng để lại thông tin của bạn!</h3>
+                                    
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td valign="top" style="padding-top: 15px;padding-bottom: 30px">
+
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td>
+                                                <span><label class="td_lbl">Họ tên <span class="required">(*)</span></label></span>
+                                                <span><input class="td_input" type="text" placeholder="Họ tên" id="FullName" name="FullName" /></span>
+                                            </td>
+                                            <td>
+                                                <span><label class="td_lbl">Điện thoại <span class="required">(*)</span></label></span>
+                                                <span><input class="td_input" type="text" placeholder="Điện thoại" id="Phone" name="Phone" /></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span><label class="td_lbl">Email <span class="required">(*)</span></label></span>
+                                                <span><input class="td_input" type="text" placeholder="Email" id="Email" name="Email" /></span>
+                                            </td>
+                                            <td>
+                                                <span><label class="td_lbl">Địa chỉ <span class="required">(*)</span></label></span>
+                                                <span><input class="td_input" type="text" placeholder="Địa chỉ" id="Address" name="Address" /></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <span><label class="td_lbl">Nội dung<span class="required">(*)</span></label></span>
+                                                <span>
+                                                    <textarea name="Comments" class="input-text td_textarea" id="Comments" placeholder="Ghi chú đơn hàng" rows="2" cols="5"> </textarea>
+                                                </span>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span><label class="td_lbl">Mã xác minh <span class="required">(*)</span></label></span>
+                                                <span><input class="td_input" type="text" placeholder="Mã xác minh" id="CaptchaCode" name="CaptchaCode" /></span>
+                                            </td>
+                                            <td>
+                                                <div style="float:right;width:18%" id="RenderCaptchaRandom"> @Html.Partial("_CaptchaRandomPartial")</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span><label class="td_lbl">Lưu ý: Những trường có <span class="required">(*) là bắt buộc phải nhập.</span></label></span>
+                                            </td>
+                                            <td>
+                                                <input type="submit"  class=".btn-warning" value="Gửi liên hệ" data-value="Đặt hàng">
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    jQuery(document).ready(function () {
+        validateFormPopup()
+    });
+
+
+    function validateFormPopup() {
+        jQuery("form#sendcontactrequest").validate({
+            // Rules for form validation
+            rules: {
+                FullName: {
+                    required: true,
+                },
+                Address: {
+                    required: true,
+                },
+                Phone: {
+                    required: true,
+                },
+                Comments: {
+                    required: true,
+                    minlength: 100
+                },
+                Email: {
+                    required: true,
+                    email: true,
+                },
+                CaptchaCode: {
+                    required: true,
+                },
+
+            },
+            // Messages for form validation
+            messages: {
+                FullName: {
+                    required: "Thông tin bắt buộc"
+                },
+                Address: {
+                    required:"Thông tin bắt buộc"
+                },
+                Phone: {
+                    required: "Thông tin bắt buộc"
+                },
+                Comments: {
+                    required: "Thông tin bắt buộc",
+                    minlength: "Tối thiểu 100 ký tự"
+                },
+                Email: {
+                    required: "Thông tin bắt buộc",
+                    email: "Email không đúng",
+                },
+                CaptchaCode: {
+                    required: "Thông tin bắt buộc"
+                },
+
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+
+            submitHandler: function (form) {
+                
+                jQuery(form).ajaxSubmit({
+                    //clearForm: true,//To clear form after ajax submitting
+                    beforeSend: function () {
+                        jQuery(document).ajaxStart(jQuery.blockUI({ message: '<i class="fa fa-spinner fa-3x fa-lg fa-spin txt-color-blueDark"></i>', theme: false })).ajaxStop(jQuery.unblockUI);
+
+                    },
+                    success: function (data) {
+                        
+                        if (data.success) alerSuccess();
+                        else {
+                            alert(data.message);
+                            RefreshPartial();
+
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    }
+
+    function RefreshPartial() {
+        var r = '@Html.Raw(@Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))';
+        jQuery("form#sendcontactrequest #RenderCaptchaRandom").empty();
+         //this should refresh PartImagesPartial
+        $.ajax({
+            url: r + "Home/GetCaptchaRandom",
+            type: "GET",
+            //dataType: "html",
+            //contentType: false,
+            //cache: false,
+            data: { },
+            success: function (data) {
+                jQuery("form#sendcontactrequest #RenderCaptchaRandom").html(data);
+                jQuery("form#sendcontactrequest #CaptchaCode").val("");
+            }
+        });
+    }
+
+
+   
+    function alerSuccess() {
+
+        bootbox.alert("Thông của bạn đã được ghi nhận.", function () { window.location = ("@Url.Action("Index","Home")");  })
+        setTimeout(function () {
+            // be careful not to call box.hide() here, which will invoke jQuery's hide method
+            bootbox.hideAll();
+             window.location = ("@Url.Action("Index","Home")");
+        }, 3000);
+    }
+</script>
+
