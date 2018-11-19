@@ -119,7 +119,12 @@
 
                         </div>
                     </div>
-
+                    <div class="form-group">
+                        <label class="control-label col-md-4" style="">ectdes</label>
+                        <div class=" col-md-8 ">
+                            <textarea class="md-textarea form-control" id="ectdes" name="ectdes"  rows="4" placeholder="ectdes">#=ectdes!=null? ectdes : ''#</textarea>
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset class="col-lg-6" style="border: none; float: left">
 
@@ -251,7 +256,7 @@
             dataType: 'json',
             data: myFormData,
             success: function (result) {
-                debugger;
+                
                 if (result && result.length > 0) {
                     $("#formPopup #defautlimg").val(result[0].url);
                     $("#formPopup #imgPreview").attr("src", result[0].url);
@@ -260,7 +265,7 @@
                 $("#formPopup #imgPreview").show();
             },
             error(xhr, status, error) {
-                debugger;
+                
                 bootbox.alert("Upload Fail!");
             }
         });

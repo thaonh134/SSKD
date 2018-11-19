@@ -145,7 +145,7 @@
             },
 
             submitHandler: function (form) {
-                debugger;
+                
                 jQuery(form).ajaxSubmit({
                     //clearForm: true,//To clear form after ajax submitting
                     beforeSend: function () {
@@ -153,7 +153,7 @@
 
                     },
                     success: function (data) {
-                        debugger;
+                        
                         if (data.success) alerSuccess();
                         else {
                             alert(data.message);

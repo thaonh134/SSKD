@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
     var dict = Model != null ? (Dictionary<string, object>)Model : new Dictionary<string, object>();
-    var data_product = dict.ContainsKey("data_product") ? (DefaultView.FE_Product)dict["data_product"] : new DefaultView.FE_Product();
+    var data_product = dict.ContainsKey("data_product") && (DefaultView.FE_Product)dict["data_product"] != null ? (DefaultView.FE_Product)dict["data_product"] : new DefaultView.FE_Product();
     var data_ListOrderProduct = DefaultView.ListOrderProduct();
 }
 
@@ -109,7 +109,9 @@
                                                                                                         <b>Etc</b>
                                                                                                     </p>
                                                                                                 </td>
-
+                                                                                                <td width="300" style="border-bottom: 1px solid #C0C0C0; padding-left: 10px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px">
+                                                                                                    <p style="line-height: 150%; margin-top: 7px; margin-bottom: 7px"><textarea rows="4" style="width: 100%;" disabled="disabled"   > @data_product.Ectdes</textarea> </p>
+                                                                                                </td>
                                                                                             </tr>
                                                                                         </tbody>
                                                                                     </table>

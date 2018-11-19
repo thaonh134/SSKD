@@ -36,6 +36,7 @@ namespace SSKD.Areas.Admin.Models.AutoGen
         public int viewcount { get; set; }
         public int sellcount { get; set; }
         public string comments { get; set; }
+        public string ectdes { get; set; }
         public bool isactive { get; set; }
         public DateTime createdat { get; set; }
         public int createdby { get; set; }

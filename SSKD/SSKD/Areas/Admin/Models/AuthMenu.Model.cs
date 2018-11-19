@@ -71,7 +71,7 @@ public int AddOrUpdate(int curruserid, IDbConnection dbConn, bool isTrans)
             IDbConnection dbConn = new OrmliteConnection().openConn();
             try
             {
-                return dbConn.Select<AuthMenu>();
+                return dbConn.Select<AuthMenu>(x=>x.isactive==ActiveStatus.Active);
             }
             catch (Exception ex)
             {

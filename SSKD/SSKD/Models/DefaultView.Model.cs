@@ -238,6 +238,7 @@ namespace SSKD.Models
             public int Sellcount { get; set; }
             public string Contents { get; set; }
             public string Comments { get; set; }
+            public string Ectdes { get; set; }
             public static List<FE_Product> GetByGroupCategory(int itemsPerGroup)
             {
                 try

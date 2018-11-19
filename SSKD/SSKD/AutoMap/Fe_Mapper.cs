@@ -20,6 +20,7 @@ namespace SSKD.AutoMap
                .ForMember(dst => dst.ProductName, x => x.MapFrom(src => src.entryname))
                .ForMember(dst => dst.ProductImg, x => x.MapFrom(src => src.defautlimg))
                .ForMember(dst => dst.ProductImgMore, x => x.MapFrom(src => src.listimgs))
+               .ForMember(dst => dst.Ectdes, x => x.MapFrom(src => src.ectdes))
                
                .ForMember(dst => dst.Discount, x => x.MapFrom(src => src.discount != null ? src.discount * 100 : 0))
                .ForMember(dst => dst.Price, x => x.MapFrom(src => src.price))
